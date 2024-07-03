@@ -54,6 +54,18 @@ userRouter.post('/signup', async (c) => {
     // return c.text('kal ma gya ameereka');
   })
   
+  userRouter.get('/allusers', async (c)=>{
+    const prisma = new PrismaClient({
+      //@ts-ignore  
+      datasourceUrl: c.env.DATABASE_URL
+  
+    }).$extends(withAccelerate());
+
+    const users = await prisma.user.findMany();
+
+    return c.json({users});
+
+  })
   // SIGN IN
   userRouter.post('/signin', async(c) => {
     const prisma = new PrismaClient({
