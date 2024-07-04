@@ -8,14 +8,14 @@ function Blog() {
   const {loading,blogs} = useBlogs();
 
   if(loading){
-    return <div><Skelton num={blogs}/></div>
+    return <div><Skelton/></div>
   }
   return (
     <>
     <AppBar/>
     <div className='max-w-screen-sm m-auto font-serif'>
 
-    {blogs.blog.map(blog => (
+    {blogs.map(blog => (
     <BlogCard 
         key={blog.id}
         id={blog.id} // Assuming blog has an id for key uniqueness

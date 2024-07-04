@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import BlogCard, { Avatar } from './BlogCard';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import AppBar from './AppBar';
 
@@ -23,7 +23,7 @@ interface Blog {
     };
 }
 
-function FullBlog({ blog }: { blog: Blog }) {
+function FullBlog({ blog }: { blog: any }) {
     const navigate = useNavigate();
     return (
         <div className='absolute w-full select-none'>
@@ -70,7 +70,7 @@ function FullBlog({ blog }: { blog: Blog }) {
                  
                         <div className="text-xl font-semibold mb-2 px-4">Recent Posts by <span className='text-orange-500'>{blog.author.name || "Anonymous"}</span></div>
                         <ul className="divide-y divide-gray-300">
-                            {blog.author.posts.map((item, index) => (
+                            {blog.author.posts.map((item:Blog, index:any) => (
                                 <li key={index} className="py-4 px-4">
                                     
                                         <BlogCard

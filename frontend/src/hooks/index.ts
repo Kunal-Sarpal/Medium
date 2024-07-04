@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { DATABASE_URL } from "../config";
 
 interface Blog{
+  createdAt: string | number | Date;
   id: number;
   title: string;
   content: string;

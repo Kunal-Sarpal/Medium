@@ -10,7 +10,7 @@ function Blog1() {
         id: id || ""
     });
     if(loading){
-        return <div><Skelton num={blog}/></div>
+        return <div><Skelton/></div>
     }
   return (
     <div>

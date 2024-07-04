@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 
-function Skeleton({ num }: { num: number }) {
+function Skeleton() {
   return (
     <div className="max-w-screen-md m-auto">
       {[...Array(10)].map((_, index) => (

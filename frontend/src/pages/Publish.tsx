@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import AppBar from '../components/AppBar';
 import { useNavigate } from 'react-router-dom';
 import { createBlogInput } from 'zodjicommon';
-import { z } from 'zod';
-import { IoIosArrowBack, IoIosArrowRoundBack } from 'react-icons/io';
+// import { z } from 'zod';
+import { IoIosArrowRoundBack } from 'react-icons/io';
 
 function Publish() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [errors, setErrors] = useState({ title: '', content: '' });
+    const [errors, setErrors] = useState<any>({ title: '', content: '' });
     const navigate = useNavigate();
 
     const handleSubmit = async () => {
@@ -21,7 +21,7 @@ function Publish() {
 
         if (!validation.success) {
             // Extract errors and update state
-            const newErrors = validation.error.errors.reduce((acc, error) => {
+            const newErrors = validation.error.errors.reduce((acc:any, error:any):any => {
                 acc[error.path[0]] = error.message;
                 return acc;
             }, {});
@@ -30,7 +30,7 @@ function Publish() {
         }
 
         try {
-            const response = await axios.post('https://backend.sarpalkunal7.workers.dev/api/v1/blog', {
+            await axios.post('https://backend.sarpalkunal7.workers.dev/api/v1/blog', {
                 title: title,
                 content: content
             }, {
