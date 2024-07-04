@@ -26,7 +26,7 @@ export const useBlog = ({id}:{id:string})=>{
             setBlog(response.data);
             setLoading(false);
         })
-    },[])
+    },[blog])
     return {
         loading,
         blog

@@ -2,12 +2,13 @@
 import AppBar from '../components/AppBar'
 import BlogCard from '../components/BlogCard'
 import { useBlogs } from '../hooks'
+import Skelton from './Sketon';
 
 function Blog() {
   const {loading,blogs} = useBlogs();
 
   if(loading){
-    return <div> Loading...</div>
+    return <div><Skelton num={blogs}/></div>
   }
   return (
     <>
