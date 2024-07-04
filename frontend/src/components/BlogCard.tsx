@@ -27,12 +27,12 @@ function BlogCard({
 
         <div className="text-md mr-1 ml-1 font-normal">{authorName}</div>
         <div className="font-normal flex">.</div>
-        <div className="font-normal text-sm flex justify-center ml-auto items-center text-zinc-400"> <div>{publishedDate}</div></div>
+        <div className="font-normal text-xs md:text-sm flex justify-center ml-auto items-center text-zinc-400"> <div>{publishedDate}</div></div>
 
       </div>
       <div className="text-2xl font-extrabold text-zinc-800 mt-3">{title}</div>
-      <div className="text-md text-zinc-500 mt-2">{content.length >= 50 ? content.slice(0, 60) + "..." : content}</div>
-      <div className="text-zinc-400  font-semibold  text-sm mt-3">{`${Math.ceil(content.length / 100)} minutes read.`}</div>
+      <div className="text-md text-zinc-500 mt-2">{content.length >= 10 ? content.slice(0, 40) + "..." : content}</div>
+      <div className="text-zinc-600  font-normal  text-sm mt-3">{`${Math.ceil(content.length / 100)} minutes read.`}</div>
     </div></Link>
  
     </>

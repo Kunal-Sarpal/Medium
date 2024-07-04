@@ -26,21 +26,21 @@ interface Blog {
 function FullBlog({ blog }: { blog: any }) {
     const navigate = useNavigate();
     return (
-        <div className='absolute w-full select-none'>
+        <div className='absolute w-full select-none overflow-hidden'>
             <AppBar />
-            <div className='absolute border-[1px] w-fit border-zinc-300 shadow ml-10 mt-1 hover:shadow-xl hover:bg-zinc-800 hover:text-zinc-300 hover:border-none duration-150 rounded-full text-3xl font-semibold' onClick={() => navigate(-1)}>
+            <div className='absolute border-[1px] w-fit border-zinc-300 shadow  ml-5 p-2 md:ml-5 mt-1 hover:shadow-xl hover:bg-zinc-800 hover:text-zinc-300 hover:border-none duration-150 rounded-full text-3xl font-semibold' onClick={() => navigate(-1)}>
                 <IoIosArrowRoundBack />
             </div>
             <div className="grid grid-cols-2 grid-rows-1 gap-4 p-6 bg-gray-50 rounded-lg overflow-hidden">
 
-                <div className="col-span-1 h-[78vh] overflow-y-auto p-4">
+                <div className="md:col-span-1  col-span-2  h-fit md:h-[78vh] overflow-y-auto p-4 pt-10">
                     <div className="text-5xl font-bold text-gray-900 mb-4">
                         {blog.title}
                     </div>
                     <div className="text-zinc-600  text-lg font-normal mb-4">
                         {blog.content}
                     </div>
-                    <div className="text-zinc-600 text-sm font-normal">
+                    <div className="text-zinc-600 md:text-sm text-xs font-normal">
                         
                         {new Date(blog.createdAt).toLocaleString('en-US', {
                             weekday: 'long',
@@ -55,7 +55,7 @@ function FullBlog({ blog }: { blog: any }) {
                     </div>
                 </div>
 
-                <div className="col-span-1 shadow-xl absolute w-[50%] top-15 right-0 h-full overflow-y-auto">
+                <div className="md:col-span-1  col-span-2 w-full shadow-xl  md:block md:absolute md:w-[50%] top-15 right-0 h-full overflow-y-auto">
                     <div className="p-4">
                         <div className="text-2xl font-semibold text-gray-900 flex  gap-2 items-center">
                     <Avatar size="big" name={blog.author.name || "Anonymous"}/>
