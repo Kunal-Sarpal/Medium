@@ -11,27 +11,35 @@ function Blog() {
   }
   return (
     <>
-    
     <AppBar/>
     <div className='max-w-screen-sm m-auto font-serif'>
-      <BlogCard 
-       authorName = "Jatt"
-       title = "How an ugly single page website maeks $5000 a month without affiliate marketting"
-       content =" Kunal Sarpal The top 5 in world in the field of compute science"
-       publishedDate = "2024-12-12"
-      />
-      <BlogCard 
-       authorName = "Jatt"
-       title = "I am world greates man"
-       content =" Kunal Sarpal The top 5 in world in the field of compute science"
-       publishedDate = "2024-12-12"
-      />
-      <BlogCard 
-       authorName = "Jatt"
-       title = "I am world greates man"
-       content =" Kunal Sarpal The top 5 in world in the field of compute science"
-       publishedDate = "2024-12-12"
-      />
+
+    {blogs.blog.map(blog => (
+    <BlogCard 
+        key={blog.id}
+        id={blog.id} // Assuming blog has an id for key uniqueness
+        authorName={blog.author?.name ?? "Anonyums"} // Nullish coalescing operator for optional chaining
+        title={blog.title}
+        content={blog.content}
+        publishedDate={
+            <span>
+                {new Date(blog.createdAt).toLocaleString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                    hour12: true
+                })}
+            </span>
+        }
+    />
+))}
+
+     
+    
     </div>
     
     </>

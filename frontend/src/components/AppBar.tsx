@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
 import { Avatar } from "./BlogCard"
+import { IoIosCreate } from "react-icons/io";
+
 
 function AppBar() {
     return (
@@ -19,7 +22,20 @@ function AppBar() {
 
 
             </div></div>
-            <div ><Avatar size="big" name="Kunal" /></div>
+            <div className="flex items-center justify-center gap-10">
+              
+                <div className="button-12 overflow-hidden w-[30px] shadow shadow-green-500  h-2 rounded-md  text-sm "><div className="">
+                    
+                    <Link className="button-10 font-light text-sm  flex justify-center items-center gap-1 text-zinc-500" to={"/publish"}><IoIosCreate /> New</Link></div> 
+                    
+                    </div>
+                <div >
+                    <Avatar size="big" name="Kunal" />
+                
+                </div>
+                
+               
+            </div>
         </div>
     )
 }

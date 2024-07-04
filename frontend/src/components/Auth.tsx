@@ -19,8 +19,10 @@ function Auth({ type }: { type: "signup" | "signin" }) {
         try{
             // backend ignore name
             const response =   await axios.post(`${DATABASE_URL}/api/v1/user${type === "signup" ? "/signup" : "/signin" }`,postsInput);
-            const jwt = response.data;
-            localStorage.setItem("token", jwt);
+            const newdata = await response.data;
+            
+            console.log(newdata);
+            localStorage.setItem("token",newdata);
             navigate("/blogs")
             
 
@@ -82,7 +84,7 @@ interface LabelledInput{
 }
 // @ts-ignore
 
-function LabelledInput({ label, placeholder, onChange,type }:LabelledInput) {
+export function LabelledInput({ label, placeholder, onChange,type }:LabelledInput) {
     return <div>
 
          
@@ -91,7 +93,6 @@ function LabelledInput({ label, placeholder, onChange,type }:LabelledInput) {
             <div className="mb-5">
                 <label  className="block text-zinc-400 pl-1 tracking-tight  text-sm font-medium">{label}</label>
                 {/* <input onChange={onChange} type={type} id="email" className="bg-gray-50 input-1  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-zinc-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={placeholder} required /> */}
-
                 <input onChange={onChange} type={type} className="input-1 text-sm " placeholder={placeholder} required/>
             {/* <button className="button-1 w12-c ">Submit</button> */}
 

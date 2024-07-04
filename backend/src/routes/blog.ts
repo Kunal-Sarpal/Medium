@@ -130,12 +130,25 @@ blogRoute.get('/:id', async (c) => {
         const blog = await prisma.post.findFirst({
             where: {
                 id: Number(blogid)
+            },
+            select:{
+                id:true,
+                title:true,
+                content:true,
+                createdAt:true,
+                author:{
+                    select:{
+                        name:true,
+                        posts:true,
+                        createdAt:true,
+                    }
+                }
             }
         })
 
-        return c.json({
+        return c.json(
             blog
-        })
+        )
     } catch (e) {
         c.status(404)
         return c.json({ message: "Error fetchin blog post" });
